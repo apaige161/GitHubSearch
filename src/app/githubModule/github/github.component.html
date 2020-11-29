@@ -1,0 +1,23 @@
+<h4 class="alert alert-primary">Search for a GitHub User</h4>
+
+<input class="form-control" type="search" [formControl]="searchControl">
+
+<div *ngIf="isLoading">
+  <i class="fa fa-spinner fa-spin fa-3x"></i>
+</div>
+
+<div *ngFor="let user of users" class="media">
+  <div class="media">
+    <a [routerLink]="['user', user.login, user.score]">Username and score info</a>
+    <a href="{{ user.html_url }}">
+      <img src="{{ user.avatar_url }}" class="mr-3" alt="..." width="64" height="64">
+    </a>
+    
+    <div class="media-body">
+      <h5 class="mt-0">{{ user.login }}</h5>
+      ID: {{user.id}} Score: {{ user.score }} <br>
+      <!-- to show # of followers, send a git request to the followers url and get the length of the array -->
+      followers: {{user.followers_url}}
+    </div>
+  </div>
+</div>

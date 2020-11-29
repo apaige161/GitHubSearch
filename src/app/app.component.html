@@ -1,20 +1,18 @@
-<h1 class="alert alert-primary">Search for a GitHub User</h1>
 
-<input class="form-control" type="search" [formControl]="searchControl">
-
-<div *ngIf="isLoading">
-  <i class="fa fa-spinner fa-spin fa-3x"></i>
-</div>
-
-<div *ngFor="let user of users" class="media">
-  <div class="media">
-    <a href="{{ user.html_url }}">
-      <img src="{{ user.avatar_url }}" class="mr-3" alt="..." width="64" height="64">
-    </a>
-    
-    <div class="media-body">
-      <h5 class="mt-0">{{ user.login }}</h5>
-      ID: {{user.id}} Score: {{ user.score }}
-    </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+      <a class="nav-link" routerLink="">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="GitHub">GitHub</a>
+    </li>           
+    <li class="nav-item">
+      <a class="nav-link" routerLink="login">login</a>
+    </li>       
+  </ul>  
   </div>
-</div>
+</nav>
+
+<router-outlet></router-outlet>

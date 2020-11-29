@@ -1,20 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http'
-import {ReactiveFormsModule} from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+
+import { LoginModule } from './loginModule/login.module';
+import { GitHubModule } from './githubModule/github.module';
+
+import { routing } from './app.routing';
+import { GitHubRouting } from './githubModule/githubModule.routing'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    NotFoundComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule    
+    LoginModule,
+    GitHubModule,
+    //GitHubRouting has to be imported before routing
+    GitHubRouting,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
